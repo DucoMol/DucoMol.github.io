@@ -1,0 +1,40 @@
+body {
+	background-color: #d3d3d3;
+}
+
+Li{
+	display:right;
+	margin:"200px";
+}
+
+a{
+	
+	color:#000000;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#0606CC
+}
+
+img{
+	
+	float:right;
+}
+
+div{
+	width:1000px;
+	height:100%;
+	background-color:#999999;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+}
+
+ul{
+	float:none;
+	width:560px;
+	font-size: 22px;
+	
+}
+
