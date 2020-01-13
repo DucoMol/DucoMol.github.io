@@ -5,6 +5,7 @@ body {
 Li{
 	display:right;
 	margin:"200px";
+	font-variant: small-caps;
 }
 
 a{
@@ -35,6 +36,7 @@ ul{
 	float:none;
 	width:560px;
 	font-size: 22px;
+	font-variant: small-caps;
 	
 }
 
