@@ -1,6 +1,15 @@
 body {
 	background-color: #d3d3d3;
-}
+    -ms-touch-action: none;
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+
 
 Li{
 	display:right;
