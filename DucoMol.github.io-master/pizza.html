@@ -9,7 +9,99 @@
 <link href="style.css" rel="stylesheet">
 <link rel="shortcut icon" href="pizza klein.png" />
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
 
+<script type="application/processing" data-processing-target="programma1">
+
+Duco Mol
+do 27 feb. 15:50 (17 uur geleden)
+aan mij
+
+void setup()
+{
+  size(1000,600);
+  noStroke();
+}
+ 
+void draw() {
+  background(50-(mouseY/15), 200-(mouseY/3), 255-(mouseY/3));
+  maakZonEnZee();
+  boot();
+  maakWolk(100,100,150,65,-1.25,245);
+  maakWolk(250,230,100,50,-0.5,200);
+  maakWolk(650,200,100,50,-0.95,225);
+  maakVuurtoren();
+
+}
+
+
+void boot(){
+ fill(0, 0, 0);
+ rect(300-mouseY/1.5, 450, 50, 20);
+ triangle(300-mouseY/1.5, 450, 300-mouseY/1.5, 470, 250-mouseY/1.5, 450);
+ triangle(350-mouseY/1.5, 450, 350-mouseY/1.5, 470, 365-mouseY/1.5, 450 );
+ //Rode streep op de boot
+ fill(255, 0, 0);
+ rect(300-mouseY/1.5, 455, 50, 5);
+ triangle(300-mouseY/1.5, 455, 300-mouseY/1.5, 460, 260-mouseY/1.5, 455 );
+ triangle(350-mouseY/1.5, 455, 350-mouseY/1.5, 460, 362-mouseY/1.5, 455 );
+ //Kajuit
+ fill(128, 48, 10);
+ rect(320-mouseY/1.5, 435, 30, 15);
+ //Stoompijp
+ fill(0, 0, 0);
+ rect(330-mouseY/1.5, 420, 10, 15);
+ rect(290-mouseY/1.5, 420, 10, 30);
+ fill(255, 0, 0);
+ rect(330-mouseY/1.5, 425, 10, 5);
+ rect(290-mouseY/1.5, 425, 10, 5);
+}
+
+void maakZonEnZee(){
+  fill(255, 255-(mouseY/2.7), 0);
+  circle(500, 100+(mouseY/1.7), mouseY/13.5+50);
+  fill(0, 0, 255-mouseY/3.5);
+  rect(0, 400, 1000, 200);
+  fill(255, 255-(mouseY/2.7), 0);
+  arc(500, 400, mouseY/13.5+50, 50-(mouseY/11.25), 0, PI, CHORD); //weerspiegeling
+}
+
+void maakVuurtoren(){
+   fill(237-(mouseY/3), 217-(mouseY/3), 175-(mouseY/5));
+   arc(800, 400, 45, 30, PI, 2*PI);
+   torenStuk(785, 373.5, 30, 15);
+   torenStuk(785, 343.5, 30, 15);
+   torenStuk(785, 313.5, 30, 15);
+   fill(0, 0, 0+mouseY/10);
+   rect(780, 298.5, 40, 2);
+   rect(785, 278.5, 30, 20);
+   fill(50-(mouseY/15), 200-(mouseY/3), 255-(mouseY/3));
+   rect(787.5, 279.5, 25, 18);
+   fill(0, 0, 0+mouseY/10);
+   arc(800, 280.5, 25, 25, PI, 2*PI);
+   fill(55+((mouseY-200)/3), 55+((mouseY-200)/3), 0);
+   if (mouseY > 400) { triangle(800, 279.5, 2800-((mouseY*3-400)), 2000, 2800, 1600+(mouseY*1.5-400));
+   }
+
+}
+
+void torenStuk(float xCoordinaat, float yCoordinaat, int lengte, int hoogte)
+{
+   fill(255-(mouseY/2.35), 255-(mouseY/2.35), 255-(mouseY/3));
+   rect(xCoordinaat, yCoordinaat, lengte, hoogte);
+   fill(255-(mouseY/2.35), 0 , 30+mouseY/20);
+   rect(xCoordinaat, yCoordinaat-15, lengte, hoogte);
+}
+
+void maakWolk(int startXCoordinaat, int startYCoordinaat, int breedteWolk, int hoogteWolk, float beweegSnelheid, int grijswaarde) {
+  fill(grijswaarde);
+  ellipse(startXCoordinaat-mouseY*beweegSnelheid, startYCoordinaat, breedteWolk, hoogteWolk);
+  ellipse(startXCoordinaat-20-mouseY*beweegSnelheid, startYCoordinaat, breedteWolk, hoogteWolk);
+  ellipse(startXCoordinaat+10-mouseY*beweegSnelheid, startYCoordinaat+15, breedteWolk, hoogteWolk);
+}
+
+</script>
+		
 </head>
 
 
@@ -33,16 +125,14 @@
 <br>
 <br>
 
+<canvas id="programma1"></canvas>	
+	
 
 	<h1> Website van Duco en Tim </h1>
 	<br>
 
 	<br>
 	<br>
-	<p> Speel hier de enige echte pizza game, je moet zo snel mogelijk de pizza's bereiden zodat de klanten tevreden blijven. Hoelang hou jij het vol?
-
-	
-	</p>
 	<br>
 
 <embed height="750" width="750" quality="high" id="flashobj_mc" src="http://media.jaludo.com/make_pizza/pappas_pizza.swf" allowscriptaccess="always" x-shockwave-flash="" application=""  width:"" wmode="direct">
