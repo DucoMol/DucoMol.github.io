@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>
-			website van duco en Tim
-		</title>
-<meta charset="utf-8" />
-<meta description="de website over pizza">
-<link href="style.css" rel="stylesheet">
-<link rel="shortcut icon" href="pizza klein.png" />
-
+		
+<title>
+website van duco en Tim
+</title>
+		
+		
 <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
-
 <script type="application/processing" data-processing-target="programma1">
 void setup()
 {
   size(1000,600);
   noStroke();
 }
- 
+  
 void draw() {
   background(50-(mouseY/15), 200-(mouseY/3), 255-(mouseY/3));
+  if (mousePressed){
+  background (8, 0, 82);
+  maakBliksem(100,100,-1.25);
+  maakBliksem(250,230,-0.5);
+  maakBliksem(650,200,-0.95);
+  fill(10, 10, 70);
+  arc(200,400,35,25,PI,2*PI);
+  ellipse(215, 385, 7.5, 30);
+  ellipse(222, 372.5, 15, 7);
+  }
   maakZonEnZee();
   boot();
-  maakWolk(100,100,150,65,-1.25,245);
-  maakWolk(250,230,100,50,-0.5,200);
-  maakWolk(650,200,100,50,-0.95,225);
+  maakWolk(100,100,150,65,-1.25,245-(mouseY/3.4));
+  maakWolk(250,230,100,50,-0.5,200-(mouseY/4));
+  maakWolk(650,200,100,50,-0.95,225-(mouseY/3.6));
   maakVuurtoren();
 
 }
 
+void maakBliksem (int startXCoordinaat, int startYCoordinaat, float beweegSnelheid){
+  fill(255,255,0);
+  rect(startXCoordinaat-mouseY*beweegSnelheid, startYCoordinaat+10, 10, 55);
+  rect(startXCoordinaat-mouseY*beweegSnelheid, startYCoordinaat+65, 25, 10);
+  triangle(startXCoordinaat-mouseY*beweegSnelheid+22.5,startYCoordinaat+130,startXCoordinaat-mouseY*beweegSnelheid+20,
+  startYCoordinaat+70,startXCoordinaat-mouseY*beweegSnelheid+25,startYCoordinaat+70);  
+ 
+}
 
 void boot(){
  fill(0, 0, 0);
@@ -56,7 +71,7 @@ void maakZonEnZee(){
   fill(255, 255-(mouseY/2.7), 0);
   circle(500, 100+(mouseY/1.7), mouseY/13.5+50);
   fill(0, 0, 255-mouseY/3.5);
-  rect(0, 400, 1000, 200);
+  rect(0, 400, 1000, 200); 
   fill(255, 255-(mouseY/2.7), 0);
   arc(500, 400, mouseY/13.5+50, 50-(mouseY/11.25), 0, PI, CHORD); //weerspiegeling
 }
@@ -75,7 +90,8 @@ void maakVuurtoren(){
    fill(0, 0, 0+mouseY/10);
    arc(800, 280.5, 25, 25, PI, 2*PI);
    fill(55+((mouseY-200)/3), 55+((mouseY-200)/3), 0);
-   if (mouseY > 400) { triangle(800, 279.5, 2800-((mouseY*3-400)), 2000, 2800, 1600+(mouseY*1.5-400));
+   if (mouseY > 400) { 
+   triangle(800, 279.5, 2800-((mouseY*3-400)), 2000, 2800, 1600+(mouseY*1.5-400));
    }
 
 }
@@ -88,73 +104,37 @@ void torenStuk(float xCoordinaat, float yCoordinaat, int lengte, int hoogte)
    rect(xCoordinaat, yCoordinaat-15, lengte, hoogte);
 }
 
-void maakWolk(int startXCoordinaat, int startYCoordinaat, int breedteWolk, int hoogteWolk, float beweegSnelheid, int grijswaarde) {
+void maakWolk(int startXCoordinaat, int startYCoordinaat, int breedteWolk, int hoogteWolk, float beweegSnelheid, float grijswaarde) {
   fill(grijswaarde);
   ellipse(startXCoordinaat-mouseY*beweegSnelheid, startYCoordinaat, breedteWolk, hoogteWolk);
   ellipse(startXCoordinaat-20-mouseY*beweegSnelheid, startYCoordinaat, breedteWolk, hoogteWolk);
   ellipse(startXCoordinaat+10-mouseY*beweegSnelheid, startYCoordinaat+15, breedteWolk, hoogteWolk);
+  fill(255,255,0);
+
+
 }
-</script>
 
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</script>
 
-</script>
+		
 		
 </head>
-<br>
-<br>
-
-	
-	
-
-
 <body>
-<div>
-<div class="navbar">
-  <a href="index.html">Home</a>
-  <a href="pizza.html">Pizza</a>
-  <a href="pizza1.html">Pizza 1</a>
-<a href="pizza2.html">Pizza 2</a>
-
-<BR>
-<BR>
-</DIV>
-<DIV>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<canvas id="programma1"></canvas>	
 	
-	
-
-	<h1> Website van Duco en Tim </h1>
-	<br>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<canvas id="programma1"></canvas>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-<embed height="750" width="750" quality="high" id="flashobj_mc" src="http://media.jaludo.com/make_pizza/pappas_pizza.swf" allowscriptaccess="always" x-shockwave-flash="" application=""  width:"" wmode="direct">
-
-		<br>
-	
-		</div>
 </body>
-	</html>
+</html>
+
+
 
